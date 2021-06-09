@@ -96,3 +96,9 @@ def writeCSV(rows):
         write = csv.writer(f) 
         write.writerow(Details) 
         write.writerows(rows) 
+
+ # Run scraper and create CSV file with results.
+
+writeCSV(printResults(getInputs()))
+
+print("Happy hunting.")
