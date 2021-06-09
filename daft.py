@@ -69,3 +69,20 @@ def getInputs():
     listings = api.search(options)
 
     return listings
+
+# Print results
+
+def printResults(listings):
+
+    print("****************")
+    print("Search complete:")
+    print("****************")
+
+
+    rows = []
+
+    for listing in listings:
+        print("(" + str(getattr(listing, 'id')) + ")" + " €" + str(getattr(listing, 'price')) + " " + getattr(listing, 'title'))
+        rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title')])
+
+    return rows
