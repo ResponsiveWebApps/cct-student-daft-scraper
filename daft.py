@@ -86,3 +86,13 @@ def printResults(listings):
         rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title')])
 
     return rows
+
+# Write CSV
+
+def writeCSV(rows):
+
+    Details = ['id', 'price', 'address']  
+    with open('daft_results.csv', 'w') as f: 
+        write = csv.writer(f) 
+        write.writerow(Details) 
+        write.writerows(rows) 
