@@ -51,25 +51,6 @@ def getInputs():
 
     return listings
 
-
-    else:
-        options = [
-                    # Location always same setting. 
-                    LocationsOption([Location.DUBLIN_CITY_CENTRE_DUBLIN]),
-
-                    # Inputs.
-                    PriceOption(0, maxRent),
-                    BedOption(1, numBedrooms),
-                    PropertyTypesOption([PropertyType.APARTMENT])
-                ]
-
-    # Will always be renting. 
-
-    api = DaftSearch(SearchType.RENT)
-    listings = api.search(options)
-
-    return listings
-
 # Print results
 
 def printResults(listings):
@@ -97,7 +78,8 @@ def writeCSV(rows):
         write.writerow(Details) 
         write.writerows(rows) 
 
- # Run scraper and create CSV file with results.
+
+# Run scraper and create CSV file with results.
 
 writeCSV(printResults(getInputs()))
 
