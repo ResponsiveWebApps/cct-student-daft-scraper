@@ -4,3 +4,4 @@ from daft_scraper.search.options import (
     PriceOption, BedOption
 )
 from daft_scraper.search.options_location import LocationsOption, Location
+import csv 
