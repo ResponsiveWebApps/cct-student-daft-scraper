@@ -37,12 +37,10 @@ def getInputs():
     else:
         propType = PropertyType.APARTMENT
 
-    options = [
-               # Location always same setting. 
-               LocationsOption([area]),
-
+    options = [         
                # Inputs.
                PriceOption(0, maxRent),
+               LocationsOption([area]),
                BedOption(1, numBedrooms),
                PropertyTypesOption([propType])
               ]
