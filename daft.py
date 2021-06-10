@@ -23,17 +23,15 @@ def getInputs():
     print("Finally, one lump or two? How many bedrooms? Must be numerical.")
     numBedrooms = int(input("Bedrooms 1-10: "))
 
-    # Needs two different options settings for house and appartment.
+    # Needs two different options settings
 
     if area.lower() == 'n':
         area = Location.DUBLIN_2_DUBLIN
-    
     else:
         area = Location.DUBLIN_CITY_CENTRE_DUBLIN
 
     if propType.lower() == 'h':
-        propType = PropertyType.HOUSE
-    
+        propType = PropertyType.HOUSE  
     else:
         propType = PropertyType.APARTMENT
 
