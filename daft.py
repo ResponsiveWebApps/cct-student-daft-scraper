@@ -62,6 +62,8 @@ def printResults(listings):
     print("****************")
 
     rows = []
+
+    # Sorts by price.
     sorted_listings = sorted(list(listings), key=lambda a: a.price, reverse=False)
 
     for listing in sorted_listings:
@@ -86,5 +88,7 @@ def writeCSV(rows):
 # Run scraper and create CSV file with results.
 
 writeCSV(printResults(getInputs()))
-
+print("****************")
 print("Happy hunting.")
+print("CSV Created.")
+print("****************")
