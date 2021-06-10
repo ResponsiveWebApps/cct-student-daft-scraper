@@ -67,7 +67,7 @@ def printResults(listings):
     sorted_listings = sorted(list(listings), key=lambda a: a.price, reverse=False)
 
     for listing in sorted_listings:
-        print("(" + str(getattr(listing, 'id')) + ")" + " €" + str(getattr(listing, 'price')) + " " + getattr(listing, 'title'))
+        print("(" + str(getattr(listing, 'id')) + ")" + " €" + str(getattr(listing, 'price')) + " " + getattr(listing, 'title')+ "\n" + getattr(listing, 'url'))
         rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title'), getattr(listing, 'url')])
 
     return rows
@@ -90,5 +90,5 @@ def writeCSV(rows):
 writeCSV(printResults(getInputs()))
 print("****************")
 print("Happy hunting.")
-print("CSV created with URLs.")
+print("CSV created.")
 print("****************")
