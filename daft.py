@@ -54,15 +54,15 @@ def getInputs():
 # Print results
 
 def printResults(listings):
-
     print("****************")
     print("Search complete:")
     print("****************")
 
-
     rows = []
 
-    for listing in listings:
+    sorted_listings = sorted(list(listings), key=lambda a: a.price, reverse=False)
+
+    for listing in sorted_listings:
         print("(" + str(getattr(listing, 'id')) + ")" + " €" + str(getattr(listing, 'price')) + " " + getattr(listing, 'title'))
         rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title')])
 
@@ -71,6 +71,8 @@ def printResults(listings):
 # Write CSV
 
 def writeCSV(rows):
+
+    #print(rows)
 
     Details = ['id', 'price', 'address']  
     with open('daft_results.csv', 'w') as f: 
