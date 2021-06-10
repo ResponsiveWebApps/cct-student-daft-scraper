@@ -68,7 +68,7 @@ def printResults(listings):
 
     for listing in sorted_listings:
         print("(" + str(getattr(listing, 'id')) + ")" + " €" + str(getattr(listing, 'price')) + " " + getattr(listing, 'title'))
-        rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title')])
+        rows.append([getattr(listing, 'id'), getattr(listing, 'price'), getattr(listing, 'title'), getattr(listing, 'url')])
 
     return rows
 
@@ -78,7 +78,7 @@ def writeCSV(rows):
 
     #print(rows)
 
-    Details = ['id', 'price', 'address']  
+    Details = ['id', 'price', 'address', 'url']  
     with open('daft_results.csv', 'w') as f: 
         write = csv.writer(f) 
         write.writerow(Details) 
@@ -90,5 +90,5 @@ def writeCSV(rows):
 writeCSV(printResults(getInputs()))
 print("****************")
 print("Happy hunting.")
-print("CSV Created.")
+print("CSV created with URLs.")
 print("****************")
