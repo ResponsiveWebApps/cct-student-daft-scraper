@@ -14,6 +14,9 @@ def getInputs():
             "I assume as a sttudent there is no minimum rent.")
     maxRent = input("Max rent: ")
 
+    print("In Dublin 2 near CCT College or anywhere in the city?")
+    area = input("n or a ?")
+
     print("Splendid. Would you like a house or an apartment?")
     propType = input("h or a?: ")
 
@@ -22,27 +25,27 @@ def getInputs():
 
     # Needs two different options settings for house and appartment.
 
-    if propType == 'h':
-        options = [
-                    # Location always same setting. 
-                    LocationsOption([Location.DUBLIN_CITY_CENTRE_DUBLIN]),
-
-                    # Inputs.
-                    PriceOption(0, maxRent),
-                    BedOption(1, numBedrooms),
-                    PropertyTypesOption([PropertyType.HOUSE])
-                ]
-
+    if area.lower() == 'n':
+        area = Location.DUBLIN_2_DUBLIN
+    
     else:
-        options = [
-                    # Location always same setting. 
-                    LocationsOption([Location.DUBLIN_CITY_CENTRE_DUBLIN]),
+        area = Location.DUBLIN_CITY_CENTRE_DUBLIN
 
-                    # Inputs.
-                    PriceOption(0, maxRent),
-                    BedOption(1, numBedrooms),
-                    PropertyTypesOption([PropertyType.APARTMENT])
-                ]
+    if propType.lower() == 'h':
+        propType = PropertyType.HOUSE
+    
+    else:
+        propType = PropertyType.APARTMENT
+
+    options = [
+               # Location always same setting. 
+               LocationsOption([area]),
+
+               # Inputs.
+               PriceOption(0, maxRent),
+               BedOption(1, numBedrooms),
+               PropertyTypesOption([propType])
+              ]
 
     # Will always be renting. 
 
@@ -59,7 +62,6 @@ def printResults(listings):
     print("****************")
 
     rows = []
-
     sorted_listings = sorted(list(listings), key=lambda a: a.price, reverse=False)
 
     for listing in sorted_listings:
