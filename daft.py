@@ -15,10 +15,10 @@ def getInputs():
     maxRent = input("Max rent: ")
 
     print("In Dublin 2 near CCT College or anywhere in the city?")
-    area = input("n or a ?")
+    area = input("n or a ? ")
 
     print("Splendid. Would you like a house or an apartment?")
-    propType = input("h or a?: ")
+    propType = input("h or a? ")
 
     print("Finally, one lump or two? How many bedrooms? Must be numerical.")
     numBedrooms = int(input("Bedrooms 1-10: "))
