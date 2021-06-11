@@ -7,7 +7,6 @@ from daft_scraper.search.options_location import LocationsOption, Location
 import csv 
 
 # Inputs
-
 def getInputs():
 
     print("Hello CCT College student. I do not wish to be rude, but may I ask what you maximum rent should be?\n" +   
@@ -24,7 +23,6 @@ def getInputs():
     numBedrooms = int(input("Bedrooms 1-10: "))
 
     # Needs two different options settings
-
     if area.lower() == 'n':
         area = Location.DUBLIN_2_DUBLIN
     else:
@@ -44,19 +42,18 @@ def getInputs():
               ]
 
     # Will always be renting. 
-
     api = DaftSearch(SearchType.RENT)
     listings = api.search(options)
 
     return listings
 
 # Print results
-
 def printResults(listings):
     print("****************")
     print("Search complete:")
     print("****************")
 
+    # Needed for CSV
     rows = []
 
     # Sorts by price.
@@ -69,11 +66,7 @@ def printResults(listings):
     return rows
 
 # Write CSV
-
 def writeCSV(rows):
-
-    #print(rows)
-
     Details = ['id', 'price', 'address', 'url']  
     with open('daft_results.csv', 'w') as f: 
         write = csv.writer(f) 
@@ -82,7 +75,6 @@ def writeCSV(rows):
 
 
 # Run scraper and create CSV file with results.
-
 writeCSV(printResults(getInputs()))
 print("****************")
 print("Happy hunting.")
