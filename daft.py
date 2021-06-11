@@ -8,8 +8,8 @@ import csv
 # Inputs
 def getInputs():
 
-    print("Hello CCT College student. I do not wish to be rude, but may I ask what you maximum rent should be?\n" +   
-            "I assume as a sttudent there is no minimum rent.")
+    print("Hello CCT College student. I do not wish to be rude, but may I ask what your maximum rent should be?\n" +   
+            "I assume as a sttudent, there is no minimum rent.")
     maxRent = input("Max rent: ")
 
     print("In Dublin 2 near CCT College or anywhere in the city?")
